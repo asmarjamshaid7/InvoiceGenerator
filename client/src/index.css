@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+.image {
+  height: 150px;
+  width: 150px; /* Fixed width to make it square */
+  display: flex; /* Use Flexbox to align contents */
+  justify-content: center; /* Horizontal alignment */
+  align-items: center; /* Vertical alignment */
+  text-align: center;
+  border: 1px solid white;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  position: relative; /* To position the close button */
+  background-color: none; /* Optional: subtle background */
+}
+
+.image img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain; /* Keeps aspect ratio, no distortion */
+  border-radius: 8px;
+  border: none;
+}
+
+.invoice-form {
+  background-color: #383838;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input-from {
+  line-height: 40px;
+  border: none;
+  padding-left: 10px;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.input-from:focus {
+  border: none;
+  outline: none;
+}
+.invoice-meta-input {
+  line-height: 40px;
+  padding-left: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-top: 5px;
+  width: 90%;
+}
+
+.input-to {
+  line-height: 40px;
+  border: none;
+  padding-left: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid white;
+  margin-right: 5px;
+}
+
+.input-to:focus {
+  border: none;
+  outline: none;
+}
+
+.invoice-input {
+  margin-top: -85px;
+}
+
+h2 {
+  font-size: 2.2em;
+  margin-bottom: -1px;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid aqua;
+  padding: 0.6em 1.2em;
+  margin: 0 2px;
+  color: aqua;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: none;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  background-color: aqua;
+  color: black;
+  transition: background-color 0.25s;
+}
+.Line-Btn {
+  border-radius: 20px;
+  border: 1px solid aqua;
+  padding: 0.6em 1.2em;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  margin-left: -580px;
+  color: aqua;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: none;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.Line-Btn:hover {
+  background-color: aqua;
+  color: black;
+  transition: background-color 0.25s;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
