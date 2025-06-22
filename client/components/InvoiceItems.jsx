@@ -18,11 +18,11 @@ export default function InvoiceItems() {
     <div>
       <table className="w-full text-left">
         <thead>
-          <tr className="bg-gray-800">
-            <th className="p-2">Item</th>
-            <th className="p-2">Qty</th>
-            <th className="p-2">Rate</th>
-            <th className="p-2">Amount</th>
+          <tr className="ItemHeaderRow">
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Rate</th>
+            <th>Amount</th>
           </tr>
         </thead>
         <tbody>
@@ -62,10 +62,10 @@ export default function InvoiceItems() {
             </tr>
           ))}
         </tbody>
+        <button onClick={addItem} className="Line-Btn">
+          + Line Item
+        </button>
       </table>
-      <button onClick={addItem} className="Line-Btn">
-        + Line Item
-      </button>
     </div>
   );
 }

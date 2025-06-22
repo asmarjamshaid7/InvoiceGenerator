@@ -30,17 +30,22 @@ export default function InvoiceTotals() {
   };
 
   return (
-    <div className="mt-6 text-right space-y-2">
+    <div className="w-1/2 text-right space-y-2">
+      <p>Subtotal: {subtotal.toFixed(2)}</p>
       {/* Discount */}
       {!showDiscountInput ? (
-        <div
-          className="text-blue-600 cursor-pointer hover:underline"
-          onClick={() => setShowDiscountInput(true)}
-        >
+        <div className="TotalFont" onClick={() => setShowDiscountInput(true)}>
           + Discount
         </div>
       ) : (
         <div className="relative group inline-block">
+          <button
+            className="TotalsInputBtns"
+            onClick={() => removeField("discount")}
+          >
+            X
+          </button>
+
           <input
             type="number"
             placeholder="Discount"
@@ -51,27 +56,24 @@ export default function InvoiceTotals() {
                 discount: e.target.value,
               })
             }
-            className="bg-gray-800 p-2 w-40 text-right rounded"
+            className="invoiceTotalsInput"
           />
-          <button
-            className="absolute -right-4 -top-2 text-red-500 text-sm"
-            onClick={() => removeField("discount")}
-          >
-            X
-          </button>
         </div>
       )}
 
       {/* Tax */}
       {!showTaxInput ? (
-        <div
-          className="text-blue-600 cursor-pointer hover:underline"
-          onClick={() => setShowTaxInput(true)}
-        >
+        <div className="TotalFont" onClick={() => setShowTaxInput(true)}>
           + Tax
         </div>
       ) : (
         <div className="relative group inline-block">
+          <button
+            className="TotalsInputBtns"
+            onClick={() => removeField("tax")}
+          >
+            X
+          </button>
           <input
             type="number"
             placeholder="Tax"
@@ -82,27 +84,24 @@ export default function InvoiceTotals() {
                 tax: e.target.value,
               })
             }
-            className="bg-gray-800 p-2 w-40 text-right rounded"
+            className="invoiceTotalsInput"
           />
-          <button
-            className="absolute -right-4 -top-2 text-red-500 text-sm"
-            onClick={() => removeField("tax")}
-          >
-            X
-          </button>
         </div>
       )}
 
       {/* Shipping */}
       {!showShippingInput ? (
-        <div
-          className="text-blue-600 cursor-pointer hover:underline"
-          onClick={() => setShowShippingInput(true)}
-        >
+        <div className="TotalFont" onClick={() => setShowShippingInput(true)}>
           + Shipping
         </div>
       ) : (
         <div className="relative group inline-block">
+          <button
+            className="TotalsInputBtns"
+            onClick={() => removeField("shipping")}
+          >
+            X
+          </button>
           <input
             type="number"
             placeholder="Shipping"
@@ -113,23 +112,16 @@ export default function InvoiceTotals() {
                 shipping: e.target.value,
               })
             }
-            className="bg-gray-800 p-2 w-40 text-right rounded"
+            className="invoiceTotalsInput"
           />
-          <button
-            className="absolute -right-4 -top-2 text-red-500 text-sm"
-            onClick={() => removeField("shipping")}
-          >
-            X
-          </button>
         </div>
       )}
 
       {/* Totals */}
-      <p>Subtotal: ${subtotal.toFixed(2)}</p>
-      <p>Discount: -${discount.toFixed(2)}</p>
+
       <div className="flex justify-end gap-4">
         <p>Total:</p>
-        <p>${totalAfterDiscount.toFixed(2)}</p>
+        <p>{totalAfterDiscount.toFixed(2)}</p>
       </div>
 
       {/* Amount Paid */}
@@ -146,7 +138,7 @@ export default function InvoiceTotals() {
       {/* Balance Due */}
       <div className="flex justify-end gap-4">
         <p>Balance Due:</p>
-        <p>${balanceDue.toFixed(2)}</p>
+        <p>{balanceDue.toFixed(2)}</p>
       </div>
     </div>
   );

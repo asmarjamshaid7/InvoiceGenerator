@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@media print {
+  /* Hide buttons */
+  button,
+  .no-print,
+  input[type="file"] {
+    display: none !important;
+  }
+
+  /* Optional: Remove shadows, borders, or padding */
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  .rounded,
+  .rounded-lg,
+  .border {
+    border: none !important;
+    border-radius: 0 !important;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -81,10 +102,18 @@ body {
 .invoice-meta-input {
   line-height: 40px;
   padding-left: 10px;
-  border: 1px solid white;
   border-radius: 10px;
-  margin-top: 5px;
-  width: 90%;
+  margin-bottom: 45px;
+  width: 60%;
+}
+
+.payment-terms-po {
+  line-height: 20px;
+  padding-left: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 5px 0px;
+  width: 40%;
 }
 
 .input-to {
@@ -102,16 +131,12 @@ body {
   outline: none;
 }
 
-.invoice-input {
-  margin-top: -85px;
-}
-
 h2 {
   font-size: 2.2em;
   margin-bottom: -1px;
 }
 
-button {
+.PrintButton {
   border-radius: 20px;
   border: 1px solid aqua;
   padding: 0.6em 1.2em;
@@ -124,7 +149,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+.PrintButton:hover {
   background-color: aqua;
   color: black;
   transition: background-color 0.25s;
@@ -135,7 +160,7 @@ button:hover {
   padding: 0.6em 1.2em;
   margin-top: 2px;
   margin-bottom: 5px;
-  margin-left: -580px;
+  text-align: left;
   color: aqua;
   font-size: 1em;
   font-weight: 500;
@@ -161,4 +186,53 @@ button:hover {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.invoiceTotalsInput {
+  text-align: right;
+  line-height: 40px;
+  border: none;
+  padding-left: 10px;
+  width: 75%;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.TotalsInputBtns {
+  background-color: transparent;
+  border: none;
+  color: aqua;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.TotalsInputBtns:hover {
+  color: red;
+  background-color: transparent;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.TotalFont {
+  color: grey;
+}
+
+.TotalFont:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.InvoiceNotes {
+  margin: 5px 5px;
+  width: 100%;
+  padding: 5px 5px;
+}
+
+.ItemHeaderRow {
+  background-color: gray;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  border: none;
+  outline: none;
 }

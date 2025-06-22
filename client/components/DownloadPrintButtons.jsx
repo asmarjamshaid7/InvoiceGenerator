@@ -40,22 +40,13 @@ export default function DownloadPrintButtons() {
 
   return (
     <div className="flex justify-end mt-4 gap-4 print:hidden">
-      <button
-        onClick={handleDownload}
-        className="bg-blue-600 px-4 py-2 text-white rounded"
-      >
+      <button onClick={handleDownload} className="PrintButton">
         Download
       </button>
-      <button
-        onClick={handlePrint}
-        className="bg-gray-700 px-4 py-2 text-white rounded"
-      >
+      <button onClick={handlePrint} className="PrintButton ">
         Print
       </button>
-      <button
-        onClick={handleSaveToDatabase}
-        className="bg-green-600 px-4 py-2 text-white rounded"
-      >
+      <button onClick={handleSaveToDatabase} className="PrintButton ">
         Save
       </button>
     </div>

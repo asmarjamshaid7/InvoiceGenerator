@@ -79,12 +79,6 @@ export default function InvoiceHeader() {
           }
         />
       </div>
-
-      {/* Right side: INVOICE + ID */}
-      <div className="text-right">
-        <h2 className="text-3xl font-bold">INVOICE</h2>
-        <input className="input-from mt-2" />
-      </div>
     </div>
   );
 }

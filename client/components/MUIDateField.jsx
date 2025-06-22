@@ -1,10 +1,10 @@
 import React from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { TextField } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { TextField } from "@mui/material";
 
-export default function MUIDateField({ label, value, onChange, className }) {
+export default function MUIDateField({ label, value, onChange }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
@@ -17,12 +17,20 @@ export default function MUIDateField({ label, value, onChange, className }) {
             {...params}
             fullWidth
             variant="outlined"
-            InputProps={{
-              ...params.InputProps,
-              className: className || "", // Apply passed className
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                height: "40px",
+                borderRadius: "10px",
+              },
+              "& .MuiOutlinedInput-input": {
+                padding: "0 10px",
+              },
+              "& .MuiInputLabel-root": {
+                top: "-4px",
+              },
             }}
             InputLabelProps={{
-              shrink: true, // Makes the label stay above even with custom CSS
+              shrink: true,
             }}
           />
         )}

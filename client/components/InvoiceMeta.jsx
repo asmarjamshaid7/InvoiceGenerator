@@ -5,19 +5,47 @@ import MUIDateField from "./MUIDateField";
 export default function InvoiceMeta() {
   const { invoiceDetails, setInvoiceDetails } = useContext(InvoiceContext);
 
+  // Helper function to update date fields
   const handleDateChange = (field, newValue) => {
     const isoDate = newValue ? newValue.toISOString().slice(0, 10) : "";
     setInvoiceDetails({ ...invoiceDetails, [field]: isoDate });
   };
 
+  // Helper function to update text fields
+  const handleChange = (field, value) => {
+    setInvoiceDetails({ ...invoiceDetails, [field]: value });
+  };
+
   return (
-    <div className="my-6 flex flex-col gap-4">
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+        width: "100%",
+      }}
+    >
+      {/* Invoice Number */}
+      <div style={{ fontWeight: "bolder", fontSize: "40px" }}>Invoice #</div>
+      <input
+        type="text"
+        placeholder="Invoice Number"
+        value={invoiceDetails.invoiceNumber || ""}
+        onChange={(e) => handleChange("invoiceNumber", e.target.value)}
+        style={{
+          lineHeight: "40px",
+          paddingLeft: "10px",
+          borderRadius: "10px",
+          border: "1px solid #ccc",
+          width: "80%",
+        }}
+      />
+
       {/* Invoice Date */}
       <MUIDateField
         label="Invoice Date"
         value={invoiceDetails.date ? new Date(invoiceDetails.date) : null}
         onChange={(date) => handleDateChange("date", date)}
-        className="invoice-meta-input"
       />
 
       {/* Due Date */}
@@ -25,27 +53,36 @@ export default function InvoiceMeta() {
         label="Due Date"
         value={invoiceDetails.dueDate ? new Date(invoiceDetails.dueDate) : null}
         onChange={(date) => handleDateChange("dueDate", date)}
-        className="invoice-meta-input"
       />
 
       {/* Payment Terms */}
       <input
-        className="invoice-meta-input"
+        type="text"
         placeholder="Payment Terms"
-        value={invoiceDetails.terms}
-        onChange={(e) =>
-          setInvoiceDetails({ ...invoiceDetails, terms: e.target.value })
-        }
+        value={invoiceDetails.terms || ""}
+        onChange={(e) => handleChange("terms", e.target.value)}
+        style={{
+          lineHeight: "40px",
+          paddingLeft: "10px",
+          borderRadius: "10px",
+          border: "1px solid #ccc",
+          width: "100%",
+        }}
       />
 
       {/* PO Number */}
       <input
-        className="invoice-meta-input"
-        placeholder="PO"
-        value={invoiceDetails.po}
-        onChange={(e) =>
-          setInvoiceDetails({ ...invoiceDetails, po: e.target.value })
-        }
+        type="text"
+        placeholder="PO Number"
+        value={invoiceDetails.po || ""}
+        onChange={(e) => handleChange("po", e.target.value)}
+        style={{
+          lineHeight: "40px",
+          paddingLeft: "10px",
+          borderRadius: "10px",
+          border: "1px solid #ccc",
+          width: "100%",
+        }}
       />
     </div>
   );

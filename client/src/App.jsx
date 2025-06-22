@@ -31,9 +31,11 @@ export default function InvoiceForm() {
         </div>
 
         <InvoiceItems />
-        <InvoiceNotes />
+        <div className="flex justify-between gap-4 mt-6">
+          <InvoiceNotes />
+          <InvoiceTotals />
+        </div>
         <DownloadPrintButtons />
-        <InvoiceTotals />
       </form>
     </InvoiceProvider>
   );

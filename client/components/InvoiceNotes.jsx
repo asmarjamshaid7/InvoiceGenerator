@@ -5,9 +5,9 @@ export default function InvoiceNotes() {
   const { invoiceDetails, setInvoiceDetails } = useContext(InvoiceContext);
 
   return (
-    <div className="mt-6">
+    <div className="w-1/2 flex flex-col gap-4">
       <textarea
-        className="bg-gray-800 p-2 w-full"
+        className="InvoiceNotes"
         placeholder="Notes – any relevant info..."
         value={invoiceDetails.notes}
         onChange={(e) =>
@@ -15,7 +15,7 @@ export default function InvoiceNotes() {
         }
       />
       <textarea
-        className="bg-gray-800 p-2 w-full mt-2"
+        className="InvoiceNotes"
         placeholder="Terms and conditions..."
         value={invoiceDetails.termsCond}
         onChange={(e) =>
